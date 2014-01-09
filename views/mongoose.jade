@@ -1,0 +1,65 @@
+extends layout
+
+block content
+    #hd
+        h1= title
+    #layout.yui3-g
+        include nav
+        #main.yui3-u
+            h2 Mongoose Schema:
+            pre.
+                {
+                   name: {
+                        type: String
+                        , required: true
+                    }
+                    , description: String
+                    , price: Number
+                    , added: Date
+                    , available: Boolean
+                }
+            p Add an item:
+            form(action='/mongoose', method='post')
+                .yui3-g
+                    .yui3-u-1-3
+                        label Name 
+                    .yui3-u-2-3
+                        input(name='name', placeholder='Thing name')
+                .yui3-g
+                    .yui3-u-1-3
+                        label Description
+                    .yui3-u-2-3
+                        input(name='description', placeholder='Thing description')
+                .yui3-g
+                    .yui3-u-1-3
+                        label Price 
+                    .yui3-u-2-3
+                        input(name='price', placeholder='Price')                                                
+                .yui3-g
+                    .yui3-u-1-3
+                        label Is item available?
+                    .yui3-u-2-3
+                        input(name='available', type='checkbox')                                                
+
+
+                input(type="submit")
+            .space
+                hr  
+                p Let's try saving something different <strong>now</strong>
+                form(action='/mongoose', method='post')
+                    input(name='name', value='Zlatko',readonly)
+                    br
+                    input(name='email', value='zladuric@gmail.com',readonly)
+                    input(type='submit', value='Will it save?')
+
+        #extra.yui3-u
+            if (typeof(err) !== 'undefined')
+                h3 Error saving            
+                p ---
+                p.error !{JSON.stringify(err)}
+            else
+                h3 Collection contents
+                p ---
+                    each item in data
+                        span !{JSON.stringify(item)}
+

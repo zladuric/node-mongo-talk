@@ -1,0 +1,35 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+#layout {
+    padding-left:200px; /* "left col" width */ 
+    padding-right:350px; /* "right col" width */
+}
+
+#nav {
+    margin-left:-200px; /* "left col" width */
+    width:200px;
+}
+
+#extra {
+    width:350px;
+    margin-right:-350px; /* "right col" width */
+}
+#extra p {
+  max-width: 300px;
+}
+#main {
+    width:100%;
+}
+
+.space {
+    padding-top: 5em;
+}
+#hd {
+    height: 6em;
+}
